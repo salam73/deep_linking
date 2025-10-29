@@ -36,10 +36,10 @@ class _RedirectlyExampleState extends State<RedirectlyExample> {
     text: "3de41dc9-e139-45a2-b25c-9b5bb1c2d289",
   );
 
-  bool _isInitialized = false;
-  bool _isLoading = false;
-  String _status = 'Not initialized';
-  final List<String> _linkHistory = [];
+  //bool _isInitialized = false;
+  // bool _isLoading = false;
+  //  String _status = 'Not initialized';
+  //final List<String> _linkHistory = [];
   //RedirectlyLinkClick? _lastLinkClick;
   //RedirectlyLink? _lastCreatedLink;
   //RedirectlyTempLink? _lastCreatedTempLink;
@@ -69,11 +69,6 @@ class _RedirectlyExampleState extends State<RedirectlyExample> {
       return;
     }
 
-    setState(() {
-      _isLoading = true;
-      _status = 'Initializing...';
-    });
-
     try {
       await _redirectly.initialize(
         RedirectlyConfig(
@@ -88,10 +83,6 @@ class _RedirectlyExampleState extends State<RedirectlyExample> {
       // Check for initial link (when app was opened via link)
     } catch (e) {
       _showSnackBar('Initialization failed: $e', isError: true);
-      setState(() {
-        _isLoading = false;
-        _status = 'Initialization failed';
-      });
       return;
     }
 
